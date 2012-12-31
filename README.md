@@ -32,4 +32,5 @@ This extension also requires Eric Meyer's [Compass Animation Extension](https://
 
  ```
 
- ###[More Demos](http://codepen.io/adamcoulombe/pen/ktBwr)
+ [More Demos](http://codepen.io/adamcoulombe/pen/ktBwr)
+-------------------------------------------------------
