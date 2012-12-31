@@ -5,6 +5,7 @@
 This extension also requires Eric Meyer's [Compass Animation Extension](https://github.com/ericam/compass-animation)
 
 ##Usage
+[See Demo](http://codepen.io/adamcoulombe/pen/qvKdp)
 
  ```SASS
 @import "animation"; // https://github.com/ericam/compass-animation
