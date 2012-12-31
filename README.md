@@ -12,6 +12,7 @@ This extension also requires Eric Meyer's [Compass Animation Extension](https://
 
 @include keyframes(some-animation) {
 	// pass in a list of start and end values to ease between
+	// eg.
 	// 0=>50
 	// 300 =>100
 	@include ease-in-out-elastic-keyframes( (0 50, 300 100) ){
