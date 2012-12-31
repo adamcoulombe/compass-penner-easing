@@ -1,0 +1,95 @@
+$_EASE:();
+
+@mixin ease-in-back-keyframes($values) {
+	$frames:(	0,	43,		100);
+	$positions:(0,	-0.1,	1);
+	$timing-function-pattern:(ease-out,ease-in);
+	@include penner-keyframes($values,$frames,$positions,$timing-function-pattern) {
+		@content;
+	}
+}
+@mixin ease-out-back-keyframes($values) {
+	$frames:(	0,	58,		100);
+	$positions:(0,	1.1,	1);
+	$timing-function-pattern:(ease-out,ease-in);
+	@include penner-keyframes($values,$frames,$positions,$timing-function-pattern) {
+		@content;
+	}
+}
+@mixin ease-in-out-back-keyframes($values) {
+	$frames:(	0,	24,		76,		100);
+	$positions:(0,	-0.1,	1.1,	1);
+	$timing-function-pattern:(ease-out,ease-in);
+	@include penner-keyframes($values,$frames,$positions,$timing-function-pattern) {
+		@content;
+	}
+}
+@mixin ease-in-bounce-keyframes($values) {
+	$frames:(	0,	5,		9,	20,		27,		45,		63,		100);
+	$positions:(0,	0.015,	0,	0.06,	0.003,	0.249,	0.017,	1);
+	$timing-function-pattern:(ease-out,ease-in);
+	@include penner-keyframes($values,$frames,$positions,$timing-function-pattern) {
+		@content;
+	}
+}
+@mixin ease-out-bounce-keyframes($values) {
+	$frames:(0,		37,			55,		73,		82,		91,		95,		100);
+	$positions:(0,	0.987375,	0.75,	0.99,	0.9375,	0.99,	0.9845,	1);
+	$timing-function-pattern:(ease-in,ease-out);
+	@include penner-keyframes($values,$frames,$positions,$timing-function-pattern) {
+		@content;
+	}
+}
+@mixin ease-in-out-bounce-keyframes($values) {
+	$frames:(	0,	2,		4,		9,		13,			23,			32,			68,			77,			87,			91,			96,			98,		100);
+	$positions:(0,	0.0077,	0.0033,	0.031,	0.00814,	0.12489,	0.00995,	0.99005,	0.87511,	0.99186,	0.96876,	0.9967,		0.9923,	1);
+	$timing-function-pattern:(ease-out,ease-in,ease-out,ease-in,ease-out,ease-in,ease-out,ease-in,ease-out,ease-out,ease-in,ease-out,ease-in,ease-out);
+	@include penner-keyframes($values,$frames,$positions,$timing-function-pattern) {
+		@content;
+	}
+}
+@mixin ease-in-elastic-keyframes($values) {
+	$frames:(	0, 	1,			12,		27,		42,		57,			72,		87,		100	);
+	$positions:(0,	-0.0032,	0.02,	-0.058,	0.0164,	-0.04638,	0.131,	-0.371,	1	);
+	$timing-function-pattern:(ease-in-out,ease-in-out);
+	@include penner-keyframes($values,$frames,$positions,$timing-function-pattern) {
+		@content;
+	}
+}
+@mixin ease-out-elastic-keyframes($values) {
+	$frames:(	0,	14,		28,		46,		58,		74,		89,		100);
+	$positions:(0,	1.37,	0.84,	1.04,	0.9836,	1.0058,	0.998,	1);
+	$timing-function-pattern:(ease-in-out,ease-in-out);
+	@include penner-keyframes($values,$frames,$positions,$timing-function-pattern) {
+		@content;
+	}
+}
+@mixin ease-in-out-elastic-keyframes($values) {
+	$frames:(	0,	7,			18,			29,			40,			60,		71,		82,		93,		100 );
+	$positions:(0,	0.00109,	0.00523,	0.02485,	-0.1174,	1.1174,	0.9752,	1.0052,	0.9989,	1);
+	$timing-function-pattern:(ease-in-out,ease-in-out);
+	@include penner-keyframes($values,$frames,$positions,$timing-function-pattern) {
+		@content;
+	}
+}
+@mixin penner-keyframes($values,$frames,$positions,$timing-function-pattern) {
+	@for $i from 1 through length($frames) {
+		$frame: nth($frames, $i) + "%";
+		#{$frame} {
+			$_EASE:();
+			$bounce-factor:nth($positions,$i);
+			@include animation-timing-function(nth($timing-function-pattern, 1 + ($i+1) % length($timing-function-pattern)) );
+			@for $j from 1 through length($values) {
+				$property-values:nth($values,$j);
+				$property-start:nth($property-values,1);
+				$property-end:nth($property-values,2);
+				@if($property-start<$property-end){
+					$_EASE: append($_EASE, $property-start + ($property-end - $property-start) * $bounce-factor );
+				}@else{
+					$_EASE: append($_EASE, $property-end + ($property-start - $property-end)* (1 - $bounce-factor));
+				}
+			}
+			@content;
+		}
+	}
+}
