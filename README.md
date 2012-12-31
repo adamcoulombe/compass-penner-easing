@@ -4,6 +4,18 @@
 
 This extension also requires Eric Meyer's [Compass Animation Extension](https://github.com/ericam/compass-animation)
 
+Nine mixins to generate cool easing effects using CSS animations:
+
+@mixin ease-in-back-keyframes($values)
+@mixin ease-out-back-keyframes($values)
+@mixin ease-in-out-back-keyframes($values)
+@mixin ease-in-bounce-keyframes($values)
+@mixin ease-out-bounce-keyframes($values)
+@mixin ease-in-out-bounce-keyframes($values)
+@mixin ease-in-elastic-keyframes($values)
+@mixin ease-out-elastic-keyframes($values)
+@mixin ease-in-out-elastic-keyframes($values)
+
 ##Usage
 [See Demo](http://codepen.io/adamcoulombe/pen/qvKdp)
 
