@@ -6,7 +6,7 @@ This extension also requires Eric Meyer's [Compass Animation Extension](https://
 
 ##Usage
 
- ```CSS
+ ```SASS
 @import "animation"; // https://github.com/ericam/compass-animation
 @import "compass-penner-easing";
 
