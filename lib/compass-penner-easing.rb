@@ -1,5 +1,4 @@
 require 'compass'
-require 'animation'
 Compass::Frameworks.register("compass-penner-easing", :path => "#{File.dirname(__FILE__)}/..")
 
 module CompassPennerEasing
